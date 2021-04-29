@@ -3,6 +3,12 @@ body {
   padding: 2em 4em;
 }
 
+a {
+  font-weight: 500;
+  text-decoration: none;
+  color: black;
+}
+
 .App {
   /*text-align: center;*/
 }
