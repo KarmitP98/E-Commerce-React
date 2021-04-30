@@ -20,4 +20,14 @@
   color: black;
   border: 1px solid black;
 }
+
+.custom-button.google-sign-in {
+  color: white;
+  background-color: #4285f4;
+}
+
+.custom-button.google-sign-in:hover {
+  background-color: #357ae8;
+  border: none;
+}
 /*# sourceMappingURL=button.css.map */
