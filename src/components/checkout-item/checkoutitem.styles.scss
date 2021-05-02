@@ -26,13 +26,9 @@
 		padding-left: 20px;
 	}
 
-	.remove-button {
-		padding-left: 12px;
-		cursor: pointer;
-	}
-
-    .q-controls{
+    .q-controls, .remove-button{
         margin: 0 0.5em;
         cursor: pointer;
+        user-select: none;
     }
 }

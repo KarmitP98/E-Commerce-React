@@ -1,5 +1,5 @@
 import { CartActionTypes } from './cart.types';
-import { addItemToCart } from './cart.utils';
+import { addItemToCart,updateItemQuantity } from './cart.utils';
 
 const initialState = {
 	hidden: true,
@@ -17,9 +17,7 @@ const CartReducer = (state = initialState, { type, payload }) => {
 		case CartActionTypes.UPDATE_ITEM_QUANTITY: {
 			return {
 				...state,
-				cartItems: state.cartItems.map((item) =>
-					item.id === payload.item.id ? { ...item, quantity: item.quantity + payload.type } : item
-				),
+				cartItems: updateItemQuantity(state.cartItems, payload),
 			};
 		}
 		default:
