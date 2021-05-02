@@ -11,6 +11,7 @@
           flex-direction: column;
   width: 22%;
   height: 350px;
+  position: relative;
 }
 
 .collection-item .image {
@@ -19,6 +20,25 @@
   margin-bottom: 5px;
   background-position: center;
   background-size: cover;
+}
+
+.collection-item Button {
+  width: 80%;
+  opacity: 0.7;
+  position: absolute;
+  top: 255px;
+  display: none;
+}
+
+.collection-item:hover .image {
+  opacity: 0.8;
+}
+
+.collection-item:hover Button {
+  opacity: 0.85;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .collection-item .collection-footer {
