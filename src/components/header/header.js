@@ -6,7 +6,7 @@ import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon';
 
 import './header.styles.scss';
-import { CartDropDown } from '../cart-dropdown/cart-dropdown';
+import CartDropDown from '../cart-dropdown/cart-dropdown';
 
 export const Header = ({ currentUser, hidden }) => {
 	return (
@@ -32,7 +32,7 @@ export const Header = ({ currentUser, hidden }) => {
 				)}
 				<CartIcon className='option' />
 			</div>
-			{hidden ? null: <CartDropDown />}
+			{hidden ? null : <CartDropDown />}
 		</div>
 	);
 };
