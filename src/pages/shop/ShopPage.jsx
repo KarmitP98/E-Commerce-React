@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectShopCollections } from '../../redux/shop/shop.selector';
 
-const ShopPage = ({ collections }) => (
+export const ShopPage = ({ collections }) => (
 	<div className='shop-page'>
 		{collections.map(({ id, ...otherCollectionProps }) => (
 			<CollectionPreview key={id} {...otherCollectionProps} />
