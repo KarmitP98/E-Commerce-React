@@ -1,14 +1,17 @@
 import React from 'react';
-import CollectionPreview from '../../components/preview-collection/collection-preview';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectShopCollections } from '../../redux/shop/shop.selector';
+import { Route, Switch } from 'react-router';
+import Collections from '../../components/collections/collection.component';
+import Category from '../../components/category/category.component';
 
-export const ShopPage = ({ collections }) => (
+export const ShopPage = ({ match }) => (
 	<div className='shop-page'>
-		{collections.map(({ id, ...otherCollectionProps }) => (
-			<CollectionPreview key={id} {...otherCollectionProps} />
-		))}
+		<Switch>
+			<Route exact path={`${match.path}`} component={Collections} />
+			<Route path={`${match.path}/:cat`} component={Category} />
+		</Switch>
 	</div>
 );
 
