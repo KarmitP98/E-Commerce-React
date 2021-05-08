@@ -1,10 +1,10 @@
-import SHOP_DATA from "./shop.data";
+import SHOP_DATA from './shop.data';
 
 const initialState = {
-  collections: SHOP_DATA
+	collections: SHOP_DATA
 };
 
-const shopReducer =  (state = initialState, { type, payload }) => {
+const shopReducer = (state = initialState, {type, payload}) => {
 	switch (type) {
 		default:
 			return state;

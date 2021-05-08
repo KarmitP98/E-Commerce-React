@@ -5,7 +5,7 @@ import Directory from '../../components/directory/directory';
 export const Homepage = ( props: any ) => {
 	
 	return (
-		<div className = "homepage">
+		<div className="homepage">
 			<Directory/>
 		</div>
 	);

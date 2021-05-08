@@ -1,10 +1,11 @@
 .login {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 0 20vw;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20vw;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 }
+
 /*# sourceMappingURL=login.css.map */
