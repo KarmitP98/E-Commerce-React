@@ -29,6 +29,11 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     const userRef = firestore.doc(`users/${userAuth.uid}`);
     const snapShot = await userRef.get();
 
+    // Get entire collection and get snapshots of each document in the collection
+    // const collectionRef = firestore.collection('users')
+    // const collectionSnapshot = await collectionRef.get()
+    // console.log({collection: collectionSnapshot.docs.map(doc => doc.data())});
+
     if (!snapShot.exists) {
         const {displayName, email} = userAuth;
         const createdAt = new Date();
@@ -46,6 +51,23 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     }
 
     return userRef;
+};
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey);
+
+    const batch = firestore.batch();
+
+    // Do a batch write
+
+    // Loop through the array and add them to batch
+    objectsToAdd.forEach(object => {
+        const newDocRef = collectionRef.doc();
+        batch.set(newDocRef, object);
+    });
+
+    // Send a batch
+    return await batch.commit();
 };
 
 export default firebase;
