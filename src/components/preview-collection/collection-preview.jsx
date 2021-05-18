@@ -3,7 +3,6 @@ import './collection-preview.styles.scss';
 import CollectionItem from '../collection-item/collection-item';
 
 export const CollectionPreview = ({title, items, history}) => {
-    console.log(history);
     return (
         <div className="collection-preview">
             <h1

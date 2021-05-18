@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {Homepage} from './pages/homepage/homepage';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import ShopPage from './pages/shop/ShopPage';
+import ShopPage from './pages/shop/Shop.component';
 import Header from './components/header/header';
 import LoginPage from './pages/loginpage/login.page';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';

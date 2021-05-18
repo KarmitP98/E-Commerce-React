@@ -16,10 +16,10 @@ firebase.initializeApp({
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-// Basically do it for Google here instead of in the serivce
+// Basically do it for Google here instead of in the service
 // Gives access to GoogleAuthProvider
 const provider = new firebase.auth.GoogleAuthProvider();
-// Prompt select account popup eveytime
+// Prompt select account popup everytime
 provider.setCustomParameters({prompt: 'select_account'});
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
@@ -68,6 +68,26 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 
     // Send a batch
     return await batch.commit();
+};
+
+// Map Collections to document Arrays
+export const convertCollectionsSnapShotToMap = (collection) => {
+    const transformed = collection.docs.map(doc => {
+        const {title, items} = doc.data();
+        const {id} = doc;
+
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id,
+            title,
+            items
+        };
+    });
+    // For each but accumulator goes through the array linearly with .push at the end of each iteration.
+    return transformed.reduce((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator;
+    }, {});
 };
 
 export default firebase;
