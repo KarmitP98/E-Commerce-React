@@ -1,14 +1,14 @@
 .directory-menu {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	width: 100%;
-	height: 100%;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
 }
 
 /*# sourceMappingURL=directory.styles.css.map */

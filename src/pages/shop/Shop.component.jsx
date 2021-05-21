@@ -1,15 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {createStructuredSelector} from 'reselect';
-import {selectIsCollectionFetching, selectIsCollectionsLoaded} from '../../redux/shop/shop.selector';
 import {Route} from 'react-router';
-import Collections from '../../components/collections/collection.component';
-import Collection from '../../components/collection/collection.component';
 import {fetchCollectionsStartAsync} from '../../redux/shop/shop.actions';
-import SpinnerComponent from "../../components/spinner/spinner.component";
-
-const CollectionOverviewWithSpinner = SpinnerComponent(Collections);
-const CollectionPageWithSpinner = SpinnerComponent(Collection)
+import CollectionsOverviewContainer from "../../components/collections-overview/collection-overview.container";
+import CollectionContainer from "../../components/collection/collection.container";
 
 export class ShopComponent extends Component {
   
@@ -19,27 +13,22 @@ export class ShopComponent extends Component {
   }
   
   render() {
-    const {match, fetching, isLoaded} = this.props;
+    const {match} = this.props;
     return (
       <div className = 'shop-page'>
         <Route
           exact path = {`${match.path}`}
-          render = {(props) => <CollectionOverviewWithSpinner isLoading = {fetching} {...props}/>}/>
+          component = {CollectionsOverviewContainer}/>
         <Route
           path = {`${match.path}/:collectionId`}
-          render = {(props) => <CollectionPageWithSpinner isLoading = {!isLoaded} {...props}/>}/>
+          component = {CollectionContainer}/>
       </div>
     );
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  fetching: selectIsCollectionFetching,
-  isLoaded: selectIsCollectionsLoaded
-});
-
 const mapDispatchToProps = dispatch => ({
   fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopComponent);
+export default connect(null, mapDispatchToProps)(ShopComponent);

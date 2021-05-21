@@ -6,6 +6,6 @@ const selectUser = state => state.user;
  * Return current user
  */
 export const selectCurrentUser = createSelector(
-    [selectUser],
-    (user) => user.currentUser
+  [selectUser],
+  (user) => user.currentUser
 );

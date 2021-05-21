@@ -1,9 +1,9 @@
 {
-  "version": 3,
-  "mappings": "AAAA,AAAA,QAAQ,CAAC;EACR,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CAKtB;;AARD,AAKC,QALO,CAKP,MAAM,CAAC;EACN,MAAM,EAAE,MAAM;CACd;;AAGF,AAAA,QAAQ,CAAA;EACP,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAClB;CAAC",
-  "sources": [
+  "version" : 3,
+  "mappings" : "AAAA,AAAA,QAAQ,CAAC;EACR,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CAKtB;;AARD,AAKC,QALO,CAKP,MAAM,CAAC;EACN,MAAM,EAAE,MAAM;CACd;;AAGF,AAAA,QAAQ,CAAA;EACP,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAClB;CAAC",
+  "sources" : [
     "signin.scss"
   ],
-  "names": [],
-  "file": "signin.css"
+  "names" : [ ],
+  "file" : "signin.css"
 }

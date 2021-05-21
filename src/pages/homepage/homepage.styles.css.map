@@ -1,9 +1,9 @@
 {
-  "version": 3,
-  "mappings": "AAAA,AAAA,SAAS,CAAC;EACR,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,cAAc,EAAE,MAAM;EACtB,OAAO,EAAE,SAAS;CACnB",
-  "sources": [
+  "version" : 3,
+  "mappings" : "AAAA,AAAA,SAAS,CAAC;EACR,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,cAAc,EAAE,MAAM;EACtB,OAAO,EAAE,SAAS;CACnB",
+  "sources" : [
     "homepage.styles.scss"
   ],
-  "names": [],
-  "file": "homepage.styles.css"
+  "names" : [ ],
+  "file" : "homepage.styles.css"
 }

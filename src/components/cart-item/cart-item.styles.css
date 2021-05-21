@@ -1,36 +1,36 @@
 .cart-item {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	width: 100%;
-	height: 80px;
-	margin-bottom: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 15px;
 }
 
 .cart-item img {
-	width: 30%;
+    width: 30%;
 }
 
 .cart-item .item-details {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	align-items: flex-start;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	justify-content: center;
-	width: 70%;
-	padding: 10px 20px;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-start;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    padding: 10px 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
 }
 
 .cart-item .item-details .name {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 /*# sourceMappingURL=cart-item.styles.css.map */

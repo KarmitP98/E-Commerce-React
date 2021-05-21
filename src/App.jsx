@@ -13,60 +13,60 @@ import {createStructuredSelector} from 'reselect';
 import checkout from './pages/checkout/CheckoutPage';
 
 class App extends Component {
-    unsub = null;
-
-    componentDidMount() {
-        const {setCurrentUser} = this.props;
-
-        this.unsub = auth.onAuthStateChanged(async (userAuth) => {
-            if (userAuth) {
-                const userRef = await createUserProfileDocument(userAuth);
-
-                userRef?.onSnapshot((snapShot) => {
-                    setCurrentUser({
-                        id: snapShot.id,
-                        ...snapShot.data(),
-                    });
-                });
-            } else {
-                setCurrentUser(userAuth);
-            }
+  unsub = null;
+  
+  componentDidMount() {
+    const {setCurrentUser} = this.props;
+    
+    this.unsub = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        
+        userRef?.onSnapshot((snapShot) => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
         });
-
-        // Add Collection Data ONCE
-        // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})));
-    }
-
-    /**
-     * Same a ngOnDestroy
-     */
-    componentWillUnmount() {
-        this.unsub();
-    }
-
-    render() {
-        const {currentUser} = this.props;
-        return (
-            <div className="App">
-                <Header/>
-                <Switch>
-                    <Route exact path="/" component={Homepage}/>
-                    <Route path="/shop" component={ShopPage}/>
-                    <Route path="/checkout" component={checkout}/>
-                    <Route path="/login" render={() => (currentUser ? <Redirect to="/"/> : <LoginPage/>)}/>
-                </Switch>
-            </div>
-        );
-    }
+      } else {
+        setCurrentUser(userAuth);
+      }
+    });
+    
+    // Add Collection Data ONCE
+    // addCollectionAndDocuments('collections-overview', collectionsArray.map(({title, items}) => ({title, items})));
+  }
+  
+  /**
+   * Same a ngOnDestroy
+   */
+  componentWillUnmount() {
+    this.unsub();
+  }
+  
+  render() {
+    const {currentUser} = this.props;
+    return (
+      <div className = 'App'>
+        <Header/>
+        <Switch>
+          <Route exact path = '/' component = {Homepage}/>
+          <Route path = '/shop' component = {ShopPage}/>
+          <Route path = '/checkout' component = {checkout}/>
+          <Route path = '/login' render = {() => (currentUser ? <Redirect to = '/'/> : <LoginPage/>)}/>
+        </Switch>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser,
-    // collectionsArray: selectCollectionsForPreview
+  currentUser: selectCurrentUser,
+  // collectionsArray: selectCollectionsForPreview
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
