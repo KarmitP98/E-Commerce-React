@@ -17,3 +17,10 @@ export const selectIsCollectionFetching = createSelector(
   [selectShop],
   shop => shop.fetching
 )
+
+// !! converts any "falsy" value to boolean value
+
+export const selectIsCollectionsLoaded = createSelector(
+  [selectShop],
+  shop => !!shop.collections
+)
