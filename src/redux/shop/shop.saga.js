@@ -22,15 +22,6 @@ export function* fetchCollectionsAsync() {
   } catch (error) {
     yield put(fetchCollectionsFailure(error.message))
   }
-  // collectionRef
-  //   .get()
-  //   .then(async snapshot => {
-  //     const collectionMap = convertCollectionsSnapShotToMap(snapshot);
-  //     // updateCollections(collectionMap);
-  //     dispatch(fetchCollectionsSuccess(collectionMap))
-  //     this.setState({loading: false})
-  //   })
-  //   .catch(error => dispatch(fetchCollectionsFailure(error.message)))
 }
 
 
