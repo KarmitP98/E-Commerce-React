@@ -20,6 +20,11 @@ const CartReducer = (state = initialState, {type, payload}) => {
         cartItems: updateItemQuantity(state.cartItems, payload),
       };
     }
+    case CartActionTypes.CLEAR_CART:
+      return {
+        ...state,
+        cartItems: []
+      }
     default:
       return state;
   }

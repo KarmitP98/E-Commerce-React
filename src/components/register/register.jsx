@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './register.scss';
-import {auth, createUserProfileDocument} from '../../firebase/firebase.utils';
 import FormInput from '../form-input/form-input';
 import Button from '../button/button';
+import {signUpStart} from "../../redux/user/user.actions";
+import {connect} from "react-redux";
 
-export default class Register extends Component {
+export class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,22 +24,12 @@ export default class Register extends Component {
   
   handleSubmit = async (e) => {
     e.preventDefault();
-    
+  
     const {displayName, email, password} = this.state;
-    
-    try {
-      const {user} = await auth.createUserWithEmailAndPassword(email, password);
-      
-      createUserProfileDocument(user, {displayName});
-      
-      this.setState({
-        displayName: '',
-        email: '',
-        password: '',
-      });
-    } catch (e) {
-      console.log(e.message);
-    }
+    const {signUpStart} = this.props
+  
+  
+    signUpStart({displayName, email, password})
   };
   
   render() {
@@ -83,3 +74,8 @@ export default class Register extends Component {
     );
   }
 }
+
+export const mapDispatchToProps = dispatch => ({
+  signUpStart: userCredentials => dispatch(signUpStart(userCredentials))
+})
+export default connect(null, mapDispatchToProps)(Register)

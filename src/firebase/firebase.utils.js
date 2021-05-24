@@ -18,10 +18,20 @@ export const firestore = firebase.firestore();
 
 // Basically do it for Google here instead of in the service
 // Gives access to GoogleAuthProvider
-const provider = new firebase.auth.GoogleAuthProvider();
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 // Prompt select account popup everytime
-provider.setCustomParameters({prompt: 'select_account'});
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+googleAuthProvider.setCustomParameters({prompt: 'select_account'});
+export const signInWithGoogle = () => auth.signInWithPopup(googleAuthProvider);
+
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsub = auth.onAuthStateChanged(userAuth => {
+      unsub()
+      resolve(userAuth)
+    }, reject)
+  })
+}
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
