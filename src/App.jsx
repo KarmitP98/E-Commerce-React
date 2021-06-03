@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {Homepage} from './pages/homepage/homepage';
 import {Redirect, Route, Switch} from 'react-router-dom';
@@ -11,15 +11,15 @@ import {selectCurrentUser} from './redux/user/user.selectors';
 import {createStructuredSelector} from 'reselect';
 import checkout from './pages/checkout/CheckoutPage';
 
-class App extends Component {
-  
-  componentDidMount() {
-    const {checkUserSession} = this.props
+const App = ({currentUser,checkUserSession}) => {
+
+
+  // Passing check user session ensures the component does not re-render when currentUser gets updated!
+  useEffect(() => {
     checkUserSession()
-  }
-  
-  render() {
-    const {currentUser} = this.props;
+  }, [checkUserSession])
+
+
     return (
       <div className = 'App'>
         <Header/>
@@ -31,7 +31,6 @@ class App extends Component {
         </Switch>
       </div>
     );
-  }
 }
 
 const mapStateToProps = createStructuredSelector({
