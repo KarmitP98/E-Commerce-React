@@ -59,7 +59,7 @@ export class Register extends Component {
           />
           <FormInput
             type = 'password'
-            name = 'password'
+            namze = 'password'
             id = 'password'
             label = 'Password'
             value = {password}
